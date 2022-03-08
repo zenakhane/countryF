@@ -1,0 +1,94 @@
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 15px;
+}
+
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#myInput {
+    flex-direction: row;
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 12px 20px 12px 40px;
+}
+
+#myInput2 {
+    width: 170px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 12px 30px 12px 50px;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+.addBtn button {
+    padding: 20px 40px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: #b6dadf;
+    border: none;
+    /* border-radius: 10px; */
+    box-shadow: 0 9px #999;
+}
+
+.addBtn:active {
+    box-shadow: 0 #666;
+    transform: translateY(4px);
+}
+
+.countFlags {
+    padding: 20px;
+    margin: 30px;
+    font-size: 20px;
+}
+
+.searchbar:active {
+    box-shadow: 0 #666;
+    transform: translateY(4px);
+}
+
+.searchbar button {
+    float: right;
+    padding: 10px 10px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: 0 9px #999;
+    background-repeat: no-repeat;
+}
+
+.searchbar input[type=text] {
+    float: right;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('Hnet.com-image.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.searchbar input[type=text]:focus {
+    width: 20%;
+}

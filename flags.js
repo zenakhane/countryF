@@ -57,17 +57,20 @@ flagList = countriesAndFlags();
 countriesFlags.sort();
 
 
+
 function myFunction() {
     let flag = input1
     let country = input2
-    if (flag != undefined) {
-        flag = input1.value
+    let regexFlag = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/.test(flag);;
 
+    if (regexFlag != undefined) {
+        regexFlag = input1.value
     }
     if (country != undefined) {
         country = input2.value
     }
-    console.log(flag)
+
+    console.log(regexFlag)
     console.log(country)
 }
 
@@ -96,6 +99,20 @@ const countryFlag = () => {
     }
 }
 
+
+function displayFunction(country) {
+    document.getElementById("countFlags").innerHTML = ""
+    for (var i = 0; i < country.length; i++) {
+        var list = document.createElement("LI");
+        var countList = document.createTextNode(country[i]);
+        list.appendChild(countList);
+        document.getElementById("countFlags").appendChild(list);
+        countriesFlags.push(countList)
+
+    }
+
+
+}
 // filtering function
 const filterCountries = (element, index) => {
     return element.filter(function(el) {

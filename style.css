@@ -9,7 +9,7 @@ body {
     flex-direction: column;
 }
 
-#myInput {
+.myInput {
     flex-direction: row;
     text-align: center;
     width: 100px;
@@ -20,7 +20,7 @@ body {
     padding: 12px 20px 12px 40px;
 }
 
-#myInput2 {
+.myInput2 {
     width: 170px;
     box-sizing: border-box;
     border: 2px solid #ccc;

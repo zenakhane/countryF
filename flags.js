@@ -1,40 +1,109 @@
-const countries = ["Argentina", "Brazil", "Chile", "Zambia", "Uganda", "Malawi", "Rwanda", "Ireland", "Switzerland"];
-const flags = ["🇦🇷", "🇧🇷", "🇨🇱", "🇿🇲", "🇺🇬", "🇲🇼", "🇷🇼", "🇮🇪", "🇨🇭"];
-const countFlags = document.querySelector(".countFlags")
-const button = document.querySelector(".button")
+const countriesFlags = [{
+        flag: "🇦🇷",
+        country: "Argentina"
 
-countries.sort();
+    },
+    {
+        flag: "🇧🇷",
+        country: "Brazil"
 
-console.log(countries)
-console.log(flags)
+    },
+    {
+        flag: "🇨🇱",
+        country: "Chile"
 
-let countryList = '<ul>' + countries.map(function(list, index) {
-    return flags[index] +
-        list;
+    },
+    {
+        flag: "🇿🇲",
+        country: "Zambia"
+
+    },
+    {
+        flag: "🇺🇬",
+        country: "Uganda"
+
+    },
+    {
+        flag: "🇲🇼",
+        country: "Malawi"
+
+    },
+    {
+        flag: "🇷🇼",
+        country: "Rwanda"
+
+    },
+    {
+        flag: "🇮🇪",
+        country: "Ireland"
+
+    },
+    {
+        flag: "🇨🇭",
+        country: "Switzerland"
+
+    }
+]
+var regex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
+
+
+const countFlags = document.querySelector(".countFlags");
+const button = document.querySelector("input[name='button']:checked");
+let input1 = document.querySelector(".myInput");
+let input2 = document.querySelector(".myInput2");
+
+flagList = countriesAndFlags();
+
+countriesFlags.sort();
+
+
+function myFunction() {
+    let flag = input1
+    let country = input2
+    if (flag != undefined) {
+        flag = input1.value
+
+    }
+    if (country != undefined) {
+        country = input2.value
+    }
+    console.log(flag)
+    console.log(country)
+}
+
+
+
+let countryList = () => '<ul>' + countriesFlags.map(function(list, index) {
+    const {
+        flag,
+        country
+    } = list
+    return flag + country;
 }).join('') + '</ul>';
-countFlags.innerHTML = countryList;
-console.log(countryList)
+countFlags.innerHTML = countryList();
 
 
 // local storage
-function countryFlag() {
-    if (candflags.setFlagAndCountry(reg.value)) {
-        localStorage.setItem('candflags', JSON.stringify(candflags.countryDisplayFlags()))
-        displayFunction(candflags.setFlagAndCountry())
+if (localStorage['flagList']) {
+    countF = JSON.parse(localStorage.getItem('flagList'))
+}
+flagList.setFlagAndCountry()
+
+const countryFlag = () => {
+    if (candflags.setFlagAndCountry(countries.value)) {
+        localStorage.setItem('flagsList', JSON.stringify(candflags.countryDisplayFlags()))
+        countryList(flagList.setFlagAndCountry())
     }
 }
 
 // filtering function
-function filterCountries(element, index) {
-    return element.find(function(el) {
-        return el.toLowerCase().indexOf(index.toLowerCase()) !== -1
+const filterCountries = (element, index) => {
+    return element.filter(function(el) {
+        return element.indexOf(index) !== -1
     })
 }
-console.log(filterCountries(countries, 'z'))
 
-
-function buttons() {
+const buttons = () => {
     var btn = document.querySelector("input[name='button']:checked");
     btn.checked = false;
 }
-buttons.addEventListener('click', countriesAndFlags)
